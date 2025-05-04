@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">TeachIt</string>
+
+    <string-array name="robot_welcome_messages">
+        <item>Merhaba! Hazır mısın? Bugün birlikte harika şeyler öğreneceğiz!</item>
+        <item>Selam! Ben buradayım, anlatmak için sabırsızlanıyorum. Hadi birlikte öğrenelim!</item>
+        <item>Hoş geldin! Bugün kendine ne kattın? Hadi birlikte bir adım daha atalım.</item>
+        <item>Selam öğrenci dostum! Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧</item>
+        <item>Hazırsan başlayalım! Beyin kaslarını çalıştırma zamanı 💡</item>
+        <item>Yine geldin! Harika! Bugün bana neler öğreteceksin bakalım? 🤓</item>
+        <item>Merhaba meraklı zihin! Konu ne olursa olsun ben buradayım 👨‍🏫</item>
+        <item>Anlat bakalım, bugün hangi konunun uzmanı oluyorsun? 🎓</item>
+        <item>Hadi göster bana neler biliyorsun! Eksikleri birlikte tamamlayalım 🛠️</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
