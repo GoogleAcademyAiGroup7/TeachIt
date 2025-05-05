@@ -14,18 +14,15 @@ import com.swanky.teachit.models.TestResult
 import com.swanky.teachit.helpers.Converters
 
 @Database(
-    // SpeechRecord entity'sini ekle
     entities = [Topic::class, Evaluation::class, TestResult::class, SpeechRecord::class],
-    // Versiyonu artır (Örn: 1 ise 2 yap)
     version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 
-    abstract fun getDao(): Dao // Bu metod aynı kalır
+    abstract fun getDao(): Dao
 
-    // --- Singleton Pattern ---
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
@@ -35,13 +32,9 @@ abstract class AppDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "teachit_database" // Veritabanı adını kontrol et
+                    "teachit_database"
                 )
-                    // !!! ÖNEMLİ: Migration Stratejisi !!!
-                    // Geliştirme için en kolayı (Veri kaybı olur):
                     .fallbackToDestructiveMigration()
-                    // Yayınlama için doğru olan (Migration tanımlanmalı):
-                    // .addMigrations(MIGRATION_1_2)
                     .build()
                 INSTANCE = instance
                 instance

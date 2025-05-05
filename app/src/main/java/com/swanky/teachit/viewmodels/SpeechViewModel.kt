@@ -19,13 +19,11 @@ import com.swanky.teachit.repositories.SpeechRepository
 
 class SpeechViewModel(application: Application) : AndroidViewModel(application) {
 
-    // Repository manuel olarak oluşturulacak
-    private val speechRepository: SpeechRepository // Yeni Repository tipini kullan
+    private val speechRepository: SpeechRepository
 
     // Veritabanından gelen tüm kayıtlar
     val allRecords: LiveData<List<SpeechRecord>>
 
-    // --- UI Durumları için LiveData'lar ---
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
     private val _errorMessage = MutableLiveData<Event<String>>()
@@ -33,28 +31,15 @@ class SpeechViewModel(application: Application) : AndroidViewModel(application) 
     private val _noResultEvent = MutableLiveData<Event<Unit>>()
     val noResultEvent: LiveData<Event<Unit>> = _noResultEvent
 
-    // --- Navigasyon ---
     private val _navigateToChat = MutableLiveData<Event<String>>()
     val navigateToChat: LiveData<Event<String>> = _navigateToChat
 
-    // Tanınan metinlerin geçici listesi (Fragment'taki observer bunu kullanıyor)
-    // Bu liste artık doğrudan veritabanından gelen `allRecords` ile yönetiliyor.
-    // Eğer hala ayrı bir liste tutmak istiyorsanız bu kalabilir, ama genellikle
-    // `allRecords`'ı observe etmek yeterlidir. Şimdilik yoruma alıyorum.
-    // private val _recognizedTexts = MutableLiveData<List<String>>(emptyList())
-    // val recognizedTexts: LiveData<List<String>> = _recognizedTexts
-
     init {
-        // Repository'yi manuel olarak oluştur
         val dao = AppDatabase.getDatabase(application).getDao()
         speechRepository = SpeechRepository(dao) // Yeni Repository'yi oluştur
-        // LiveData repository'den alınıyor
         allRecords = speechRepository.allSpeechRecordsLiveData
     }
 
-    /**
-     * Konuşma tanıma sonucunu işler. Başarılıysa veritabanına kaydeder ve navigasyonu tetikler.
-     */
     fun processSpeechResult(resultCode: Int, data: Intent?) {
         _isLoading.value = false
         if (resultCode == android.app.Activity.RESULT_OK && data != null) {
@@ -62,9 +47,7 @@ class SpeechViewModel(application: Application) : AndroidViewModel(application) 
                 data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
             if (!speechResult.isNullOrEmpty()) {
                 val recognizedText = speechResult[0]
-                // 1. Veritabanına kaydet (arka planda)
                 insertRecord(recognizedText)
-                // 2. Navigasyonu tetikle
                 _navigateToChat.value = Event(recognizedText)
             } else {
                 _noResultEvent.value = Event(Unit)
@@ -75,7 +58,7 @@ class SpeechViewModel(application: Application) : AndroidViewModel(application) 
     // Veritabanına yeni kayıt ekler ve sonucu işler
     private fun insertRecord(text: String) = viewModelScope.launch {
         _isLoading.value = true
-        val result = speechRepository.insertSpeechRecord(SpeechRecord(text = text)) // Yeni Repository metodunu kullan
+        val result = speechRepository.insertSpeechRecord(SpeechRecord(text = text))
         _isLoading.value = false
         result.onFailure { exception ->
             _errorMessage.value = Event("Kayıt hatası: ${exception.localizedMessage ?: "Bilinmeyen hata"}")
@@ -96,7 +79,7 @@ class SpeechViewModel(application: Application) : AndroidViewModel(application) 
     // Kayıt silme işlemleri (Result kontrolü ile)
     fun deleteRecord(recordId: Long) = viewModelScope.launch {
         _isLoading.value = true
-        val result = speechRepository.deleteSpeechRecordById(recordId) // Yeni Repository metodunu kullan
+        val result = speechRepository.deleteSpeechRecordById(recordId)
         _isLoading.value = false
         result.onFailure { exception ->
             _errorMessage.value = Event("Silme hatası: ${exception.localizedMessage ?: "Bilinmeyen hata"}")
@@ -105,7 +88,7 @@ class SpeechViewModel(application: Application) : AndroidViewModel(application) 
 
     fun deleteAllRecords() = viewModelScope.launch {
         _isLoading.value = true
-        val result = speechRepository.deleteAllSpeechRecords() // Yeni Repository metodunu kullan
+        val result = speechRepository.deleteAllSpeechRecords()
         _isLoading.value = false
         result.onFailure { exception ->
             _errorMessage.value = Event("Tümünü silme hatası: ${exception.localizedMessage ?: "Bilinmeyen hata"}")
