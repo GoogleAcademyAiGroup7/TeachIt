@@ -22,7 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:background="@color/darkColor">
 
             <com.airbnb.lottie.LottieAnimationView
@@ -75,7 +75,7 @@
         android:background="@drawable/round_corner"
         app:itemActiveIndicatorStyle="@null"
         app:itemIconTint="@drawable/bottom_nav_item_tint"
-        app:itemRippleColor="@null"
+        app:itemRippleColor="@color/bejColor"
         app:itemTextColor="@drawable/bottom_nav_item_tint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
