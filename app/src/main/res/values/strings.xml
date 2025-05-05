@@ -5,7 +5,7 @@
         <item>Merhaba! Hazır mısın? Bugün birlikte harika şeyler öğreneceğiz!</item>
         <item>Selam! Ben buradayım, anlatmak için sabırsızlanıyorum. Hadi birlikte öğrenelim!</item>
         <item>Hoş geldin! Bugün kendine ne kattın? Hadi birlikte bir adım daha atalım.</item>
-        <item>Selam öğrenci dostum! Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧</item>
+        <item>Selam öğrenci dostum! Bugün ne anlatmak istersin? Dinlemeye hazırım 🎧</item>
         <item>Hazırsan başlayalım! Beyin kaslarını çalıştırma zamanı 💡</item>
         <item>Yine geldin! Harika! Bugün bana neler öğreteceksin bakalım? 🤓</item>
         <item>Merhaba meraklı zihin! Konu ne olursa olsun ben buradayım 👨‍🏫</item>
@@ -14,5 +14,13 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="start_speech_button">Konuşmayı Başlat</string>
+    <string name="recognized_text_placeholder">Tanınan metin burada görünecek...</string>
+    <string name="speech_prompt">Şimdi konuşun...</string>
+    <string name="speech_not_supported">Cihazınız konuşma tanımayı desteklemiyor.</string>
+    <string name="error_speech">Konuşma tanıma sırasında bir hata oluştu.</string>
+    <string name="no_speech_result">Sonuç bulunamadı.</string>
+
 
 </resources>

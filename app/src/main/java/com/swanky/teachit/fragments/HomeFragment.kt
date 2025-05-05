@@ -5,18 +5,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.swanky.teachit.R
+import com.swanky.teachit.databinding.FragmentHomeBinding
+import com.swanky.teachit.viewmodels.HomePageViewmodel
+import androidx.navigation.fragment.findNavController
 
 
 class HomeFragment : Fragment() {
+
+    private var _viewBinding: FragmentHomeBinding? = null
+    private val viewBinding get() = _viewBinding!!
+    private val viewModel: HomePageViewmodel by viewModels()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _viewBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        return viewBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewBinding.cardSubjects.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.homeToSpeech)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _viewBinding = null
     }
 
 }

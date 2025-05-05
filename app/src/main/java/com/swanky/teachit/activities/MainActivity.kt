@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         // Set the BottomNavigationView with the NavController
-        NavigationUI.setupWithNavController(dataBinding.bottomNavigationView, navController)
+        //NavigationUI.setupWithNavController(dataBinding.bottomNavigationView, navController)
 
         // Listen for back button presses to handle navigation properly
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
@@ -49,5 +49,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
 }

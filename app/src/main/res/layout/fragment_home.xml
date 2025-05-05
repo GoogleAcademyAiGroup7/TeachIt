@@ -5,118 +5,201 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/my_white"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".fragments.HomeFragment"
+    android:padding="16dp">
 
+    <!-- Konularım -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cardSubjects"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_margin="4dp"
         app:cardBackgroundColor="@color/bejColor"
         app:cardCornerRadius="16dp"
         app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cardView2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toStartOf="@+id/cardTests"
+        app:layout_constraintBottom_toTopOf="@+id/cardAchievements"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintWidth_percent="0.46"
+        app:layout_constraintHeight_percent="0.45">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:orientation="vertical"
-            android:weightSum="7">
+            android:gravity="center"
+            android:padding="8dp">
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4"
-                android:padding="10dp"
+                android:layout_weight="2"
                 android:scaleType="centerInside"
                 android:src="@drawable/icon_color" />
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Konularım"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-
             <TextView
-                android:id="@+id/textView67"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:text="Konularını buradan görüntüleyebilir, dilediğini seçerek öğrenmeye hemen başlayabilirsin." />
+                android:text="Yeni bir şeyler mi öğrenmek istiyorsun?" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- Testler -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cardTests"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_margin="4dp"
         app:cardBackgroundColor="@color/bejColor"
         app:cardCornerRadius="16dp"
         app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardSubjects"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/cardReview"
+        app:layout_constraintWidth_percent="0.46"
+        app:layout_constraintHeight_percent="0.45">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:orientation="vertical"
-            android:weightSum="7">
+            android:gravity="center"
+            android:padding="8dp">
 
             <ImageView
-                android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4"
-                android:padding="10dp"
+                android:layout_weight="2"
                 android:scaleType="centerInside"
                 android:src="@drawable/icon_color" />
 
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
-                android:text="Konu ekle"
+                android:text="Testler"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView55"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:text="Yeni bir şeyler mi öğrenmek istiyorsun? Buradan kolayca konu ekleyebilirsin." />
+                android:text="Bilgini test etmek için buraya göz at." />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <!-- Başarılarım -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAchievements"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/bejColor"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cardSubjects"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cardReview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.46"
+        app:layout_constraintHeight_percent="0.45">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Başarılarım"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Kazanımlarını buradan takip edebilirsin." />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tekrar Edilecekler -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardReview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/bejColor"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cardTests"
+        app:layout_constraintStart_toEndOf="@id/cardAchievements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.46"
+        app:layout_constraintHeight_percent="0.45">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_color" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Tekrar Edilecekler"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tekrar etmen gereken konular burada." />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
