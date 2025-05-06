@@ -14,10 +14,24 @@
         android:id="@+id/homeFragment"
         android:name="com.swanky.teachit.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_testsFragment"
+            app:destination="@id/testsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_achievementsFragment"
+            app:destination="@id/achievementsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topicsFragment"
+            app:destination="@id/topicsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/testsFragment"
         android:name="com.swanky.teachit.fragments.TestsFragment"
         android:label="fragment_tests"
         tools:layout="@layout/fragment_tests" />
+    <fragment
+        android:id="@+id/topicsFragment"
+        android:name="com.swanky.teachit.fragments.TopicsFragment"
+        android:label="TopicsFragment" />
 </navigation>

@@ -7,6 +7,54 @@
     android:background="@color/my_white"
     tools:context=".fragments.HomeFragment">
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:cardElevation="5dp"
+        android:layout_marginTop="-16dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="14dp"
+            android:background="@color/darkColor">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView"
+                android:layout_width="200dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/robot_anim" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Selam öğrenci dostum! Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
+                app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
+                app:layout_constraintVertical_bias="0.488" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -15,15 +63,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:rowCount="2">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/myTopicsCardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
             android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
             app:cardBackgroundColor="@color/bejColor"
             app:cardCornerRadius="16dp"
             app:cardElevation="10dp"
@@ -52,7 +100,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Konularım"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
 
@@ -100,7 +148,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Testler"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -122,9 +170,9 @@
             android:layout_margin="8dp"
             app:cardBackgroundColor="@color/bejColor"
             app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
             app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            app:cardElevation="10dp">
+            app:layout_rowWeight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -148,7 +196,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Başarılar"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -195,7 +243,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Tekrar Edilecekler"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView

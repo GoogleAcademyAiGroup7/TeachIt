@@ -4,6 +4,7 @@ import com.swanky.teachit.models.Evaluation
 import com.swanky.teachit.models.TestResult
 import com.swanky.teachit.models.Topic
 import com.swanky.teachit.db.Dao
+import com.swanky.teachit.models.Achievement
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -21,6 +22,10 @@ class Repository @Inject constructor(private val dao: Dao) {
 
     suspend fun getAllTestResults(): Result<List<TestResult>> {
         return safeCall { dao.getAllTestResults() }
+    }
+
+    suspend fun getAllAchievements(): Result<List<Achievement>> {
+        return safeCall { dao.getAllAchievements() }
     }
 
 

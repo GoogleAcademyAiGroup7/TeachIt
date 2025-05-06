@@ -3,6 +3,7 @@ package com.swanky.teachit.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.swanky.teachit.models.Achievement
 import com.swanky.teachit.models.Evaluation
 import com.swanky.teachit.models.TestResult
 import com.swanky.teachit.models.Topic
@@ -19,6 +20,9 @@ interface Dao {
 
     @Query("SELECT * FROM TestResult")
     suspend fun getAllTestResults(): List<TestResult>
+
+    @Query("SELECT * FROM Achievement")
+    suspend fun getAllAchievements(): List<Achievement>
 
 
     // INSERT
