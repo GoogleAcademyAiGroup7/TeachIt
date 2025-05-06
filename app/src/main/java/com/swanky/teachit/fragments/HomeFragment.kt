@@ -35,6 +35,7 @@ class HomeFragment : Fragment() {
         setNavigation(viewBinding.myTopicsCardView, HomeFragmentDirections.actionHomeFragmentToTopicsFragment())
         setNavigation(viewBinding.myTestsCardView, HomeFragmentDirections.actionHomeFragmentToTestsFragment())
         setNavigation(viewBinding.achievementsCardView, HomeFragmentDirections.actionHomeFragmentToAchievementsFragment())
+        setNavigation(viewBinding.reviewTopicsCardView, HomeFragmentDirections.actionHomeFragmentToReviewFragments())
     }
 
 

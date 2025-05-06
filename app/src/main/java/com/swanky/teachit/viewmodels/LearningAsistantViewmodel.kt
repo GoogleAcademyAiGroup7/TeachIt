@@ -1,6 +1,8 @@
 package com.swanky.teachit.viewmodels
 
 import android.app.Application
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
 import com.swanky.teachit.R
@@ -17,6 +19,9 @@ import javax.inject.Inject
 @HiltViewModel
 class LearningAsistantViewmodel @Inject constructor(private val repository: Repository, application: Application) : BaseViewModel(application)  {
 
+    private val _evaluation = MutableLiveData<Evaluation?>(null)
+    val evaluation: LiveData<Evaluation?> = _evaluation
+
     fun sendAi(topic: Topic, userAnswer: String) {
         val generativeModel = GenerativeModel(
             // The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
@@ -32,16 +37,16 @@ class LearningAsistantViewmodel @Inject constructor(private val repository: Repo
             if  (response.text != null) {
                 val aiResponse = parseResponse(response.text!!)
                 // Convert AI response to Evaluation entity
-                val evaluation = mapAIResponseToEvaluation(aiResponse, topic.id)
+                val parsedEvaluation = mapAIResponseToEvaluation(aiResponse, topic.id)
+                _evaluation.value = parsedEvaluation
 
                 // Save to database
-                repository.insertEvaluation(evaluation)
+                repository.insertEvaluation(parsedEvaluation)
             }
         }
 
 
     }
-
 
     // Parse the response from AI in JSON format
     private fun parseResponse(responseText: String): AiResponse {

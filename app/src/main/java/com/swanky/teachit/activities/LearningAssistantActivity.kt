@@ -5,13 +5,19 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.ai.client.generativeai.GenerativeModel
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.swanky.teachit.databinding.ActivityLearningAssistantBinding
+import com.swanky.teachit.databinding.BottomSheetAddTopicBinding
+import com.swanky.teachit.databinding.BottomSheetAiResponseBinding
+import com.swanky.teachit.models.Evaluation
 import com.swanky.teachit.models.Topic
 import com.swanky.teachit.utils.ApiKeyUtil
 import com.swanky.teachit.utils.hideWithAnimated
@@ -28,6 +34,8 @@ class LearningAssistantActivity : AppCompatActivity() {
     private var isFirstSpeech = true
     private var selectedTopic: Topic? = null
     private val viewModel: LearningAsistantViewmodel by viewModels()
+    private lateinit var bottomSheetDialog: BottomSheetDialog
+    private lateinit var bottomDialogBinding: BottomSheetAiResponseBinding
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +44,7 @@ class LearningAssistantActivity : AppCompatActivity() {
         setContentView(dataBinding.root)
         dataBinding.master = this
 
-
+        observeLiveData()
         registerLauncher()
 
        selectedTopic = intent.getSerializableExtra("selectedTopic") as? Topic
@@ -107,12 +115,51 @@ class LearningAssistantActivity : AppCompatActivity() {
             if (userAnswer.isNotEmpty()) {
                 // Send Ai
                 viewModel.sendAi(selectedTopic!!, userAnswer)
+                defineBottomSheetDialog()
 
             } else {
                 Toast.makeText(this, "Göndermek için konuyu anlatmalısın...", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
+    private fun observeLiveData() {
+        viewModel.evaluation.observe(this) { evaluation ->
+            if (evaluation != null) {
+                updateUiBottomSheet(evaluation)
+            } else {
+                //Toast.makeText(this, "Bir hata oluştu", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun defineBottomSheetDialog() {
+        bottomDialogBinding = BottomSheetAiResponseBinding.inflate(LayoutInflater.from(this))
+        bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog.apply {
+            setContentView(bottomDialogBinding.root)
+            this.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            setCancelable(false)
+        }
+        bottomSheetDialog.show()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateUiBottomSheet(evaluation: Evaluation) {
+        bottomSheetDialog.setCancelable(true)
+
+        bottomDialogBinding.aiLoadingLayout.hideWithAnimated(bottomDialogBinding.bottomSheetRoot)
+        bottomDialogBinding.resultLayout.showWithAnimated(bottomDialogBinding.bottomSheetRoot)
+
+        bottomDialogBinding.missingInfoText.text = evaluation.missingInfo
+        bottomDialogBinding.explanationQualityText.text = evaluation.explanationQuality
+        val suggestionsList = evaluation.suggestions
+        val formattedSuggestions = suggestionsList.joinToString("\n") { "• $it" }
+        bottomDialogBinding.suggestionsTxt.text = formattedSuggestions
+        bottomDialogBinding.aiResultScoreTxt.text = evaluation.score.toString()
+    }
+
 
 
     fun previousPage() {
