@@ -29,6 +29,7 @@
                 android:id="@+id/lottieAnimationView"
                 android:layout_width="200dp"
                 android:layout_height="0dp"
+                android:layout_marginStart="-20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -41,11 +42,12 @@
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="Selam öğrenci dostum! Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧"
-                android:textSize="19sp"
-                android:textStyle="bold"
+                android:layout_marginStart="-35dp"
+                android:layout_marginEnd="30dp"
+                android:text="Selam öğrenci dostum!        Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧"
                 android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
@@ -91,7 +93,7 @@
                     android:layout_weight="4"
                     android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_color" />
+                    android:src="@drawable/book" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -139,7 +141,7 @@
                     android:layout_weight="4"
                     android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_color" />
+                    android:src="@drawable/test" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -187,7 +189,7 @@
                     android:layout_weight="4"
                     android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_color" />
+                    android:src="@drawable/goal" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -234,7 +236,7 @@
                     android:layout_weight="4"
                     android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_color" />
+                    android:src="@drawable/time" />
 
                 <TextView
                     android:layout_width="match_parent"
