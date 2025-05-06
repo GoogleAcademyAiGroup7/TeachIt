@@ -6,10 +6,11 @@ import androidx.room.TypeConverters
 import com.swanky.teachit.models.Topic
 import com.swanky.teachit.models.Evaluation
 import com.swanky.teachit.models.TestResult
+import com.swanky.teachit.models.Achievement
 import com.swanky.teachit.helpers.Converters
 
 @Database(
-    entities = [Topic::class, Evaluation::class, TestResult::class],
+    entities = [Topic::class, Evaluation::class, TestResult::class, Achievement::class],
     version = 1,
     exportSchema = false
 )
