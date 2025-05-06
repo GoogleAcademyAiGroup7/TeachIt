@@ -2,12 +2,14 @@ package com.swanky.teachit.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.swanky.teachit.activities.LearningAssistantActivity
 import com.swanky.teachit.databinding.RowTopicBinding
 import com.swanky.teachit.models.Topic
 import com.swanky.teachit.utils.dateFormat
@@ -45,6 +47,16 @@ class TopicsAdapter(private val context: Context, private var topicList: List<To
         holder.binding.topicLastStudiedAtRow.text = topic.lastStudiedAt?.let {
             "Son çalışma tarihi\n${it.dateFormat()}"
         } ?: "Çalışma verisi bulunmuyor"
+
+        // Handle item click
+        holder.itemView.setOnClickListener {
+            // Start LearningAssistantActivity with the selected topic
+            val intent = Intent(context, LearningAssistantActivity::class.java)
+            intent.apply {
+                putExtra("selectedTopic", topic)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getFilter(): Filter {

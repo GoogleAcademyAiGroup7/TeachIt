@@ -23,8 +23,8 @@ class TopicsViewModel @Inject constructor(
 
     // Read only
     val topics: LiveData<List<Topic>> = _topics
-    val errorGetLiveData: LiveData<Boolean> = _errorGetLiveData.distinctUntilChanged()
-    val errorAddLiveData: LiveData<Boolean> = _errorAddLiveData.distinctUntilChanged()
+    val errorGetLiveData: LiveData<Boolean> = _errorGetLiveData
+    val errorAddLiveData: LiveData<Boolean> = _errorAddLiveData
 
     fun getTopics() {
         viewModelScope.launch {
