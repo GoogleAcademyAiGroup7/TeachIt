@@ -1,6 +1,9 @@
 package com.swanky.teachit.utils
 
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.View
+import android.view.ViewGroup
 import java.text.DateFormat
 import java.util.Date
 import java.util.Locale
@@ -18,4 +21,15 @@ fun Long.dateFormat(): String {
     val date = Date(this)
     val formatter = DateFormat.getDateInstance(DateFormat.LONG, Locale.getDefault())
     return formatter.format(date)
+}
+
+// Hide and show item with animated
+fun View.showWithAnimated(rootView: ViewGroup) {
+    TransitionManager.beginDelayedTransition(rootView, AutoTransition())
+    this.show()
+}
+
+fun View.hideWithAnimated(rootView: ViewGroup) {
+    TransitionManager.beginDelayedTransition(rootView, AutoTransition())
+    this.gone()
 }
