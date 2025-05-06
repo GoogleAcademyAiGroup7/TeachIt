@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="top"
     android:background="@color/my_white"
     tools:context=".fragments.HomeFragment">
 
@@ -12,9 +13,9 @@
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        app:cardElevation="5dp"
         android:layout_marginTop="-16dp"
         app:cardCornerRadius="16dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -43,6 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-35dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="30dp"
                 android:text="Selam öğrenci dostum!        Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧"
                 android:textColor="@color/white"
@@ -90,6 +92,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="-10dp"
                     android:layout_weight="4"
                     android:padding="10dp"
                     android:scaleType="centerInside"
@@ -102,17 +105,18 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Konularım"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_gravity="top"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="2"
-                    android:gravity="center"
+                    android:gravity="center|top"
                     android:text="Yeni bir şeyler mi öğrenmek istiyorsun?" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -138,8 +142,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="-15dp"
                     android:layout_weight="4"
-                    android:padding="10dp"
+                    android:padding="18dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/test" />
 
@@ -150,17 +155,18 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Testler"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_gravity="top"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Test sonuçları için buraya göz at." />
+                    android:gravity="center|top"
+                    android:text="Test sonuçları için      buraya göz at." />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -186,8 +192,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="-15dp"
                     android:layout_weight="4"
-                    android:padding="10dp"
+                    android:padding="14dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/goal" />
 
@@ -198,16 +205,17 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Başarılar"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_gravity="top"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="2"
-                    android:gravity="center"
+                    android:gravity="center|top"
                     android:text="Kazanımlarını buradan takip edebilirsin." />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -233,8 +241,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="-13dp"
                     android:layout_weight="4"
-                    android:padding="10dp"
+                    android:padding="16dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/time" />
 
@@ -245,16 +254,17 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Tekrar Edilecekler"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_gravity="top"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="2"
-                    android:gravity="center"
+                    android:gravity="center|top"
                     android:text="Tekrar etmen gereken konular burada." />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
