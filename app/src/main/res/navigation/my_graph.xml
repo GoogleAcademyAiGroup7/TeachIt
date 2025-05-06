@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_homeFragment_to_topicsFragment"
             app:destination="@id/topicsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reviewFragments"
+            app:destination="@id/reviewFragments" />
     </fragment>
     <fragment
         android:id="@+id/testsFragment"
@@ -34,4 +37,9 @@
         android:id="@+id/topicsFragment"
         android:name="com.swanky.teachit.fragments.TopicsFragment"
         android:label="TopicsFragment" />
+    <fragment
+        android:id="@+id/reviewFragments"
+        android:name="com.swanky.teachit.fragments.ReviewFragments"
+        android:label="fragment_review_fragments"
+        tools:layout="@layout/fragment_review_fragments" />
 </navigation>
