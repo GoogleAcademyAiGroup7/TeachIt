@@ -19,8 +19,11 @@ import androidx.room.PrimaryKey
 data class Evaluation(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+
     val topicId: Int,
-    var question: String,
-    var answer: String,
-    var isCorrect: Boolean = false
+    val userAnswer: String,
+    val missingInfo: String,
+    val explanationQuality: String,
+    val suggestions: List<String>,
+    val score: Int
 )

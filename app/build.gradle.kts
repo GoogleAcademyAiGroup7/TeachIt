@@ -99,4 +99,7 @@ dependencies {
     // Google gemini ai implement
     implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 
+    // Gson
+    implementation (libs.converter.gson)
+
 }
