@@ -7,116 +7,257 @@
     android:background="@color/my_white"
     tools:context=".fragments.HomeFragment">
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        app:cardBackgroundColor="@color/bejColor"
+        android:layout_height="250dp"
+        app:cardElevation="5dp"
+        android:layout_marginTop="-16dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cardView2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:weightSum="7">
+            android:layout_marginTop="14dp"
+            android:background="@color/darkColor">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView"
+                android:layout_width="200dp"
                 android:layout_height="0dp"
-                android:layout_weight="4"
-                android:padding="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/icon_color" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/robot_anim" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Konularım"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Selam öğrenci dostum! Ne anlatmak istersin bugün? Dinlemeye hazırım 🎧"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
+                app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
+                app:layout_constraintVertical_bias="0.488" />
 
-
-            <TextView
-                android:id="@+id/textView67"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Konularını buradan görüntüleyebilir, dilediğini seçerek öğrenmeye hemen başlayabilirsin." />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        app:cardBackgroundColor="@color/bejColor"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="10dp"
+        android:padding="16dp"
+        app:columnCount="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:rowCount="2">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:weightSum="7">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/myTopicsCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="@color/bejColor"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
-            <ImageView
-                android:id="@+id/imageView2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:padding="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/icon_color" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Konu ekle"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:weightSum="7">
 
-            <TextView
-                android:id="@+id/textView55"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Konularım"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Yeni bir şeyler mi öğrenmek istiyorsun?" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/myTestsCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/bejColor"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="2"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Yeni bir şeyler mi öğrenmek istiyorsun? Buradan kolayca konu ekleyebilirsin." />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:orientation="vertical"
+                android:weightSum="7">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Testler"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Test sonuçları için buraya göz at." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/achievementsCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/bejColor"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="7">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Başarılar"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Kazanımlarını buradan takip edebilirsin." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/reviewTopicsCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/bejColor"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="7">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Tekrar Edilecekler"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Tekrar etmen gereken konular burada." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
