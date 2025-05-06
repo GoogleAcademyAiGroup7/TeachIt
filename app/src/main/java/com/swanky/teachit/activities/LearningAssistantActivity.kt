@@ -8,18 +8,26 @@ import android.speech.RecognizerIntent
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.google.ai.client.generativeai.GenerativeModel
 import com.swanky.teachit.databinding.ActivityLearningAssistantBinding
 import com.swanky.teachit.models.Topic
+import com.swanky.teachit.utils.ApiKeyUtil
 import com.swanky.teachit.utils.hideWithAnimated
 import com.swanky.teachit.utils.showWithAnimated
+import com.swanky.teachit.viewmodels.LearningAsistantViewmodel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
+@AndroidEntryPoint
 class LearningAssistantActivity : AppCompatActivity() {
 
     private lateinit var dataBinding: ActivityLearningAssistantBinding
     private lateinit var speechLauncher: ActivityResultLauncher<Intent>
     private var isFirstSpeech = true
+    private var selectedTopic: Topic? = null
+    private val viewModel: LearningAsistantViewmodel by viewModels()
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +39,7 @@ class LearningAssistantActivity : AppCompatActivity() {
 
         registerLauncher()
 
-        val selectedTopic = intent.getSerializableExtra("selectedTopic") as? Topic
+       selectedTopic = intent.getSerializableExtra("selectedTopic") as? Topic
         selectedTopic?.let {
             putDataToLayout(it)
         }
@@ -98,14 +106,14 @@ class LearningAssistantActivity : AppCompatActivity() {
 
             if (userAnswer.isNotEmpty()) {
                 // Send Ai
-
-
+                viewModel.sendAi(selectedTopic!!, userAnswer)
 
             } else {
                 Toast.makeText(this, "Göndermek için konuyu anlatmalısın...", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 
     fun previousPage() {
         onBackPressedDispatcher.onBackPressed()

@@ -12,7 +12,25 @@
         <item>Anlat bakalım, bugün hangi konunun uzmanı oluyorsun? 🎓</item>
         <item>Hadi göster bana neler biliyorsun! Eksikleri birlikte tamamlayalım 🛠️</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="ai_prompt">
+        Sen bir öğretmensin. Bir öğrenci “%1$s” konusunu sana şu şekilde anlattı: "%2$s"\n\n
+        Lütfen öğrencinin cevabını değerlendir ve aşağıdaki kriterlere göre doğrudan öğrenciye hitap ederek kısa, açıklayıcı ve destekleyici bir geri bildirim ver:\n\n
+        • Eksik bilgileri açıkla (örneğin: "Ayrıca şunu da bilmen önemli…" gibi)\n
+        • Anlatım kalitesini yorumla (örneğin: "Kendini açık ifade etmişsin ama…" gibi)\n
+        • Önerileri 3 madde halinde, kısa cümlelerle belirt (örneğin: "- Şu konulara da göz atmanı öneririm." gibi)\n
+        • Son olarak 0-100 arasında bir puan ver\n\n
+        Tüm cevabını sadece aşağıdaki JSON formatında döndür:\n\n
+        {\n
+          "missingInfo": "…",\n
+          "explanationQuality": "…",\n
+          "suggestions": [\n
+            "…",\n
+            "…",\n
+            "…" \n
+          ],\n
+          "score": 0\n
+        }
+    </string>
 
 </resources>
