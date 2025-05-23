@@ -18,7 +18,6 @@ Bu proje, Google Yapay Zeka ve Teknoloji Akademisi kapsamında, AI Grup 7 taraf�
 •⁠  ⁠[@myelifs](https://github.com/myelifs)  
 •⁠  ⁠[@Xusroth](https://github.com/Xusroth)  
 •⁠  ⁠[@muhammedmustafageldi](https://github.com/muhammedmustafageldi)  
-•⁠  ⁠[@betoyoglu](https://github.com/betoyoglu)
 
 ---
 
