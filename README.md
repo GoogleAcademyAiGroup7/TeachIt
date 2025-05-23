@@ -40,11 +40,17 @@ Bu proje, Google Yapay Zeka ve Teknoloji Akademisi kapsamında, AI Grup 7 taraf�
 ## 🛠 Kullanılan Teknolojiler
 
 •⁠  ⁠*Kotlin (Android)*
+
 •⁠  ⁠*MVVM (Model-View-ViewModel)* yapısı
+
 •⁠  ⁠*LiveData* ve ViewModel
+
 •⁠  ⁠*ViewBinding* ile güvenli view erişimi
+
 •⁠  ⁠*Google Speech Recognizer* ile ses tanıma
+
 •⁠  ⁠*Google AI Studio – Generative AI API*
+
 •⁠  ⁠*Material Design Bottom Sheet* ile kullanıcı dostu arayüz
 
 ---
