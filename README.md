@@ -24,10 +24,15 @@ Bu proje, Google Yapay Zeka ve Teknoloji Akademisi kapsamında, AI Grup 7 taraf�
 ## 🚀 Özellikler
 
 •⁠  ⁠🎙 Sesli anlatım desteği (Speech-to-Text): Kullanıcının sesi yazıya çevrilerek değerlendirme süreci başlatılır.
+
 •⁠  ⁠🧠 Yapay zeka ile içerik analizi: Google'ın Generative AI API'si ile konu anlatımı analiz edilerek geri bildirim sağlanır.
+
 •⁠  ⁠✅ Eksik bilgi ve öneri sistemi: Yapay zeka, eksik kalan konuları belirtir ve daha iyi bir açıklama için ipuçları verir.
+
 •⁠  ⁠📊 Puanlama sistemi: Kullanıcının anlatımı, yapılandırılmış kriterlere göre puanlandırılır.
+
 •⁠  ⁠📌 Konuya özel değerlendirme: Kullanıcı, hangi konuda anlatım yapacağını seçerek spesifik analiz alır.
+
 •⁠  ⁠🧾 Geri bildirim ekranı: Kullanıcıya özel geri dönüşler, alt sayfada (Bottom Sheet) madde madde listelenir.
 
 ---
